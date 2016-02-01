@@ -1,0 +1,175 @@
+<ion-view view-title="Create Custumers" class="backgroundImg1">
+
+    <ion-content style="margin-top:10px;">
+        <form class="item" name="myForm">
+            <div class="item item-input item-stacked-label padding" style="background-color:lightgray">
+                <h1 class="  text-center">Select Account Type</h1>
+                <br />
+                <select ng-model="custAccType" style="color:black" ng-change="getAccountType(pType=pdata.type)">
+                    <option value="">Select Account Type Here</option>
+                    <option value="{{pdata.type}}" ng-repeat="pdata in product">{{pdata.type}}</option>
+
+                </select> 
+            </div>
+            <label class="item item-input " ng-show="loan" style="border-color:green" ng-class="{ 'has-errors' : loginForm.InstallmentDays.$invalid && !loginForm.InstallmentDays.$pristine, 'no-errors' : loginForm.mobileno.$valid}">
+                <b class="input-label">Installment Days</b>
+                <input type="number" ng-model="InstallmentDays" placeholder="Enter Installment Days" name="InstallmentDays" ng-minlength='1' ng-maxlength='5'>
+            </label>
+            <label class="item item-input " ng-show="loan" style="border-color:green" ng-class="{ 'has-errors' : loginForm.Percentage.$invalid && !loginForm.Percentage.$pristine, 'no-errors' : loginForm.mobileno.$valid}">
+                <b class="input-label">Percentage %</b>
+                <input type="number" ng-model="Percentage" placeholder="Enter Percentage" name="Percentage" ng-minlength='1' ng-maxlength='2'>
+            </label>
+            <label class="item item-input  energized-bg error" style="color:red" role="alert" ng-show="myForm.Percentage.$error.maxlength">
+                <b class="input-label"> </b>
+                <b class="error">
+                    Please Enter Correct Percent %
+                </b>
+            </label>
+            <label class="item item-input "  style="border-color:green" ng-class="{ 'has-errors' : loginForm.Percentage.$invalid && !loginForm.Percentage.$pristine, 'no-errors' : loginForm.mobileno.$valid}">
+                <b class="input-label">{{pType}} Amount</b>
+                <input type="number" ng-model="amount" placeholder="Enter Amount" value=0 name="Amount" minlength=1 maxlength=6 >
+            </label>
+            <label class="item item-input  " style="border-top-color:green" ng-class="{ 'has-errors' : loginForm.fname.$invalid && !loginForm.fname.$pristine && !loginForm.fname.$error.pattern, 'no-errors' : loginForm.fname.$valid}">
+                <b class=" input-label">First Name</b>
+                <input type="text" ng-model="custFName" name="fname" placeholder="Enter First Name" style="text-transform:capitalize" ng-pattern="/^[a-zA-Z]*$/">
+
+            </label>
+            <label class="item item-input  energized-bg error" style="color:red" role="alert" ng-show="myForm.fname.$error.required">
+                <b class="input-label"> </b>
+                <b class="error">
+                    First Name Required!
+                </b>
+            </label>
+            <label class="item item-input  energized-bg error" style="color:red" role="alert" ng-show="myForm.fname.$error.pattern">
+                <b class="input-label"> </b>
+                <b class="error">
+                    Enter Only Characters !
+                </b>
+            </label>
+
+              
+                <label class="item item-input " ng-class="{ 'has-errors' : loginForm.lname.$invalid && !loginForm.lname.$pristine && !loginForm.lname.$error.pattern, 'no-errors' : loginForm.lname.$valid}">
+                    <b class="input-label">Last Name</b>
+                    <input type="text" ng-model="custLName" name="lname" placeholder="Enter Last Name" ng-pattern="/^[a-zA-Z]*$/" style="text-transform:capitalize">
+
+                </label>
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.lname.$error.required">
+                <b class="input-label"> </b>
+                <b class="error">
+                    Last Name Required!
+                </b>
+            </label>
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.lname.$error.pattern">
+                <b class="input-label"> </b>
+
+                <b class="error">
+                    Enter Only Characters !
+                </b>
+
+            </label>
+                <label class="item item-input ">
+                    <b class="input-label">Custumer Address</b>
+                    <input type="text" ng-model="custAddress" name="address" placeholder="Enter Address" style="text-transform:capitalize" required>
+                </label>
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.fname.$error.required">
+                <b class="input-label"> </b>
+
+                <b class="error">
+                    Customer Address is Required !
+                </b>
+
+            </label>
+                <label class="item item-input " ng-class="{ 'has-errors' : loginForm.mobileno.$invalid && !loginForm.mobileno.$pristine, 'no-errors' : loginForm.mobileno.$valid}">
+                    <b class="input-label">Mobile Number</b>
+                    <input type="number" ng-model="custMobileNo" placeholder="Enter 10 Digit mobile Number" name="mobileno" ng-minlength='10' ng-maxlength='10'>
+                </label>
+            <label class="item item-input " ng-class="{ 'has-errors' : loginForm.mobileno.$invalid && !loginForm.mobileno.$pristine, 'no-errors' : loginForm.mobileno.$valid}">
+                <b class="input-label">Mobile Number 2</b>
+                <input type="number" ng-model="custMobileNo2" placeholder="Enter 10 Digit mobile Number" name="" ng-minlength='10' ng-maxlength='10'>
+            </label>
+            
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.mobileno.$error.required">
+                <b class="input-label"> </b>
+                <b class="error">
+                    Mobile Number Required!
+                </b>
+            </label>
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.mobileno.$error.minlength">
+
+                <b class="input-label"> </b>
+                <b class="error">
+                    Enter 10 Digit mobile Number !
+                </b>
+            </label>
+            <label class="item item-input  energized-bg" style="color:red" role="alert" ng-show="myForm.mobileno.$error.maxlength">
+
+                <b class="input-label"> </b>
+                <b class="error">
+                    Do Not Enter More Than 10 Digit mobile Number!
+                </b>
+
+            </label>
+                <label class="item item-input " ng-class="{ 'has-errors' :loginForm.pcno.$invalid &&!loginForm.pcno.$pristine, 'no-errors' : loginForm.pcno.$valid}">
+                    <b class="input-label">Pan Card No.</b>
+                    <input type="text" ng-model="custPanCard" placeholder="Enter 10 Digit PAN Card Number" style="text-transform:uppercase" name="pcno" ng-minlength='10' ng-maxlength='10'>
+
+                </label>
+            <label class="item item-input  energized-bg" role="alert" ng-show="myForm.pcno.$error.minlength" style="color:red">
+                <b class="input-label"> </b>
+                <b class="error">
+                    Enter 10 Digit PAN Card Number!
+                </b>
+
+            </label>
+            <label class="item item-input  energized-bg" role="alert" ng-show="myForm.pcno.$error.maxlength" style="color:red">
+                <b class="input-label"> </b>
+
+                <b class="error">
+                    Please Enter Not More than 10 Digit PAN Card Number!
+                </b>
+
+            </label>
+             
+                <label class="item item-input ">
+                    <b class="input-label">Email</b>
+                    <input type="email" ng-model="custEmailId" placeholder="Enter Email Address ex.john@mBank.com">
+                </label>
+
+                <div class="padding" style="margin-top:10px;">
+                    <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="createCutomer();">Request For Create Account</button>
+                    <button class="button button-block button-assertive" ng-click="clearCutomer();">Reset & Go To Home</button>
+                    <!--<button class="button button-block button-balanced" ng-click="reqCutomer();">Requested Create Customers</button>-->
+
+                </div>
+</form>
+
+        <!--<div class="" style="margin-top:20px">
+            <section class="gradient">
+                <button class="active" ng-click="requestCustomer();">
+                    <h1>Requested Customer List</h1>
+                </button>
+            </section>
+        </div>
+
+
+
+        <form name="loginForm" ng-submit="$scope.login($scope.user);" novalidate>
+            <label class="item item-input" ng-class="{ 'has-errors' : loginForm.username.$invalid && !loginForm.username.$pristine, 'no-errors' : loginForm.username.$valid}">
+                <span class="input-label">name</span>
+                <input name="username" type="text" placeholder="name" ng-model="$scope.user.username" required>
+            </label>
+            <label class="item item-input" ng-class="{ 'has-errors' : loginForm.email.$invalid && !loginForm.email.$pristine, 'no-errors' : loginForm.email.$valid}">
+                <span class="input-label">email</span>
+                <input name="email" type="email" placeholder="email" ng-model="$scope.user.email" required>
+            </label>
+            <label class="item item-input" ng-class="{ 'has-errors' : loginForm.password.$invalid && !loginForm.password.$pristine, 'no-errors' : loginForm.password.$valid}">
+                <span class="input-label">password</span>
+                <input name="password" type="password" placeholder="password" ng-model="$scope.user.password" required ng-minlength='5' ng-maxlength='10'>
+            </label>
+        </form>
+        <button class="button button-balanced button-block" ng-disabled="loginForm.$invalid">check validation</button>-->
+    </ion-content>
+
+
+</ion-view>
+

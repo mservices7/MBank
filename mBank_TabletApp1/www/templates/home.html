@@ -1,0 +1,136 @@
+<ion-view view-title="Home" class="backgroundImg1" ng-init="CheckLogin()">
+    <ion-content>
+
+        <ion-list style="overflow:scroll;">
+            <center class="paddingLR10 ">
+                <div class="row" style="margin-bottom:1px;margin-top:8px;">
+                    
+                        <a href="#/app/search/{{pdata.type}}" class="col button  button-balanced " style="margin-right:2px" ng-repeat="pdata in product">
+                            <span style="font-size:15pt">{{pdata.type}}</span>
+                        </a>
+
+                    
+                </div>
+                 
+
+
+                    <div class="item-body">
+                        <div class="list item-text-wrap">
+
+                            <div class="item item-button-right text-left" style="background-color:yellow;font-size:17pt">
+                                Report
+                                <button class="button button-energized" ng-click="getLatestTransactions();">
+                                    <i class="ion-refresh"></i>&nbsp; Refresh
+                                </button>
+                            </div>
+                            <a class="item item-icon-left text-left stable-bg" href="#">
+                                <i class="icon ion-stats-bars"></i>
+                                Today's Transactions
+                                <span class="item-note">
+                                    {{dailyDepositecount}}
+                                </span>
+                            </a>
+                            <a class="item item-icon-left text-left" href="#">
+                                <i class="icon ion-clock"></i>
+                                Today's Total Collection
+                                <span class="item-note">
+                                    Rs. <span ng-show="!todaySumcollection">0</span>{{todaySumcollection}} /-
+                                </span>
+                            </a>
+                            <a class="item item-icon-left text-left stable-bg" href="#">
+                                <i class="icon ion-calendar"></i>
+                                Total Transactions
+                                <span class="item-note">
+                                    {{allDepositedCount}}
+                                </span>
+                            </a>
+                            <a class="item item-icon-left text-left" href="#">
+                                <i class="icon ion-connection-bars"></i>
+                                Total Collection
+                                <span class="item-note">
+                                    Rs. <span ng-show="!sumoftillmoney">0</span>{{sumoftillmoney}} /-
+                                </span>
+                            </a>
+                            <div class="item item-button-right text-left">
+                                <b> Get Updated Data</b> 
+                                <button class="button button-positive" ng-click="getUpdatedData()">
+                                    Get Updated Data &nbsp;<i class="icon ion-ios-cloud-download-outline"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="text-left item-text-wrap">
+
+                            <div class="item panel" style="padding:2px 0px 15px 5px">
+                                <img src="img/user1.png" style="float:left; width:100px">
+
+                                <div ng-repeat="agentDetail in agentDetails" style="padding:12px 0px 2px 115px">
+                                    <b> {{agentDetail.agent_name}}</b><br>
+                                    Address :<b> {{agentDetail.agent_local_add}}</b><br>
+                                    Bank Id: <b>{{agentDetail.bank_id}}</b>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+</center>
+
+
+
+             
+             
+        </ion-list>
+    </ion-content>
+
+    <div class=" ">
+        <div class="tabs tab1s tabs-icon-bottom">
+            <a class=" button tab-item" href="#/app/reqCustomer">
+                <i class="icon ion-card tabIconColor"></i>
+                Req. Customer
+            </a>
+
+            <a class=" button tab-item " ng-click="goRecords();">
+                <i class="icon ion-record tabIconColor"></i>
+
+                Record
+            </a>
+            <a class="button tab-item" ng-click="sync();">
+                <i class="icon ion-loop tabIconColor"></i>
+                Sync
+            </a>
+
+        </div>
+    </div>
+</ion-view>
+
+
+<!--<!--<img class="" src="../img/user.png" />
+          <div class="item" style="margin-top:1px;">
+              <div ng-repeat="agentDetail in agentDetails">
+                  Name :<b> {{agentDetail.agent_name}}</b><br>
+                  Address :<b> {{agentDetail.agent_local_add}}</b><br>
+                  Bank Id: <b>{{agentDetail.bank_id}}</b>
+
+              </div>
+          </div>-->
+<!--<table class="item" style="height:100%">
+    <tbody class="   " ng-repeat="agentDetail in agentDetails">
+        <tr class="text-center">
+
+            <td><h1> {{agentDetail.agent_name}}</h1></td>
+        </tr>
+        <tr>
+            <td style="width:75px;"> Address</td>
+            <td> <b>: {{agentDetail.agent_local_add}}</b></td>
+        </tr>
+        <tr>
+            <td style="width:75px;">Bank Id</td>
+            <td><b>: {{agentDetail.bank_id}}</b></td>
+        </tr>
+    </tbody>
+</table>-->

@@ -1,0 +1,124 @@
+<ion-view view-title="Detais" class="backgroundImg1" align-title="left" ng-init="CheckLogin()">
+    <h2 class="title">Customers Details</h2>
+    <ion-content>
+        <div class=" ">
+            
+            <div class="panel text-center">
+                <div ng-repeat="task in tasks | filter:{cust_id:doParseInt(exact_user)}">
+
+                    <h1 class="marathiFont">{{task.cust_name}}</h1>
+
+                    <h4>
+                        Address:
+
+                        <span class="marathiFont">{{task.cust_local_add}}</span>
+
+                    </h4>
+                    <h4>
+                        Cust. ID:
+                        {{task.cust_id}}
+
+                    </h4>
+                </div>
+
+            </div>
+
+            <center>
+                <br />
+                <a href="#/app/detail_2/{{exact_user}}">
+                    <input value="Deposite" id="geenOne" style="padding:5px;" disabled>
+                </a> &nbsp;
+                <button ng-click="searches()" class="redOneDeposite ion-close"> </button>
+            </center>
+
+
+        </div>
+
+
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+    </ion-content>
+
+
+
+
+</ion-view>
+
+
+<!--<div class="list list-inset">
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input type="text" placeholder="Search" ng-model="search.agent_name">
+</label>
+     <button class="button button-clear">
+         Cancel
+     </button>
+  <br />
+<div class="list">
+  <div class="row item" ng-repeat="agent in agents | filter:search">
+      <div class="col text-center pointer"><b>{{ agent.agent_name }}</b></div>
+      <!--<div class="col">{{ agent.agent_perm_add }}</div>-->
+<!--<div class="col">{{ resource.state }}</div>--
+</div>
+</div>
+
+</div>-->
+<!--<div class="item tabs tabs-secondary tabs-icon-left pane" style="font-size:7pt;">
+    <button class="button col-25 icon-left  button-balanced" ng-click="DD();">DD</button>&nbsp;
+    <button class="button col-25 icon-left  button-balanced">RD</button>
+</div>
+
+<div class="item tabs tabs-secondary tabs-icon-left pane">
+    <button class="button col-25 icon-left   button-balanced">FD</button>&nbsp;
+    <button class="button col-25 icon-left   button-balanced">LOAN</button>
+</div>
+
+<div class="item tabs tabs-secondary tabs-icon-left  ">
+    <button class="button col-25 icon-left  button-balanced">SAVING</button>&nbsp;
+    <a class="button col-25 icon-left  button-assertive" href="#/app/search">Cancle</a>
+
+</div>
+
+  <script id="Tmodel" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar class="bar bar-header bar-positive">
+                    <h1 class="title">New Contact</h1>
+                    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+                </ion-header-bar>
+                <ion-content class="padding">
+                    <div class="list">
+                        <div ng-repeat="task in tasks | filter:{cust_id:doParseInt(exact_user)}">
+                            <div class="item-input-inset">
+                                <b class="col-20">Name:</b>
+                                <label class="item-input-wrapper">
+                                    <input type="text" ng-model="task.cust_name" value="">
+                                </label>
+                            </div>
+                            <div class="item-input-inset">
+                                <b class="col-20">Mobile:</b>
+                                <label class="item-input-wrapper">
+                                    <input type="text" ng-model="task.cust_phno_1" class="row-wrap">
+                                </label>
+                            </div>
+                            <div class="item-input-inset">
+                                <b class="col-90">Enter Amount To Deposite</b>
+
+                            </div>
+                            </div>
+                        </div>
+                        <div class="item-input-inset">
+                            <label class="item-input-wrapper">
+                                <input type="text" ng-model="depositeMoney" class="row-wrap">
+                            </label>
+
+                        </div>
+                        <button class="button button-full button-positive" ng-click="dailydeposite()">Deposite</button>
+
+                </ion-content>
+            </ion-modal-view>
+        </script>
+    -->

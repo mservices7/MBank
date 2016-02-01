@@ -1,0 +1,63 @@
+
+<ion-view view-title="Agent List" class="backgroundImg1" ng-init="CheckLogin()">
+   
+    <div class="bar  bar-subheader" style="background-color:transparent">  
+            <div class="row item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Search Agents Here" value="" onclick="this.value='';" class="textbox" id="clearText" ng-model="search">
+                </label>
+                <button class="button button-small" ng-click="getAgents();">
+                    <b class="ion-refresh"> </b>
+                </button>
+            </div> 
+    </div>
+    <ion-content style="margin-top:50px">
+
+        <form class="login text-center" name="myForm" ng-submit="assignAgent()" style="padding-top:0px;">
+            <div class="paddingLR10" style="padding-top:0px;">
+
+
+                <div class="text-left " style="padding:1.5px;">
+
+
+
+                    <div style="margin-top:5px">
+
+                        <ion-list>
+                            <div class="list" style="padding:0px;">
+                                <div class="text-center"> <ion-spinner icon="bubbles" ng-show="!agents" class="spinner-balanced"></ion-spinner></div>
+
+                                <a class="item panel" ng-click="clear();" ng-repeat="agent in agents | orderBy:'agent_id':true | filter:search" href="#/appBM/AsgnAgent_2/{{exact_BM}}/{{agent.agent_id}}" ng-hide="agent.role_id === 2" type="item-text-wrap" style="padding:5px;">
+
+                                    <h1 class="icon ion-chevron-right " style="float:right;margin-top:10px"></h1>
+                                    <b style="font-size:20pt; color:black;">{{agent.agent_name}}</b><br />
+                                    <span style=" font-size:13pt; margin-top:10px; color:black;"> Login Id  : </span><span style="font-size:11pt; margin-top:10px; color:black;" class=" ">{{agent.login_id}}</span><br />
+                                    <span style=" font-size:13pt; margin-top:10px; color:black;"> Agent Id  : </span><span style="font-size:11pt; margin-top:10px; color:black;" class=" ">{{agent.agent_id}}</span><br />
+
+                                </a>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </ion-list>
+
+
+                    </div>
+
+
+                     
+                </div>
+            </div>
+        </form>
+    </ion-content>
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+     
+
+    <!--</ion-content>-->
+</ion-view>

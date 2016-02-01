@@ -1,0 +1,464 @@
+
+/*Font Face*/
+@font-face {font-family: marathiFont; src: url(Shivaji01.ttf);src: url(Shivaji02.ttf);src: url(Shivaji05.ttf);font-weight: bold;}
+
+.marathiFont {font-family:marathiFont;}
+
+.marathiFontapply  option{font-family:marathiFont;}
+
+.custom-icon {color : lightgray;}
+
+.userImage {content:url('../img/user1.png'); width:138px;height:138px;padding:0px;} 
+
+.mBankImage {content:url('../img/mBank.png'); width:138px;height:138px;padding:0px;} 
+
+.mBankImage1 {content:url('../img/mBank.png');  } 
+
+.hw128{width:128px; height:128px;}
+
+.spinner svg {  width: 19% !important;  height: 85px !important; color:yellow !important;}
+
+/*Menu Color*/
+.menuColor{padding:0px; background-color:transparent;}
+ 
+.paddingLR10 { padding-left:5px; padding-right:5px;}
+
+/*Transperent Pannel*/
+.panel{margin-top:5px;background-color:#fff;  background: rgba(245, 245, 245, 0.8)!important;border:1px solid transparent;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)}
+
+
+.wrapper { position: relative;}
+
+.wrapper p {  
+  bottom: 5%;
+  color: white;
+  font-family: Roboto;
+  font-size: 1.25em;
+  left: 0;
+  padding: 0.25em 0.75em;
+  position: absolute;
+}
+/*Table*/
+ 
+
+/*--- Transperent Tab ---*/
+.tab1s {
+background-color:transparent;
+border-color: transparent;
+border-top: transparent;
+border-bottom: transparent;
+}
+
+.tabIconColor {color:blue;}
+
+
+section.gradient button {
+  color: #fff;
+  text-shadow: -2px 2px #346392;
+  background-color: orangered;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+  width:98%;
+  height:75PX;
+}
+
+section.gradient button:active{
+  color: #fff;
+  text-shadow: -2px 2px #346392;
+  background-color: lightgreen;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+  width:98%;
+  height:75PX;
+}
+ 
+section.gradient button.active {
+  color: #fff;
+  text-shadow: -2px 2px #346392;
+  background-color: lightgreen;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+  width:98%;
+  height:75PX;
+}
+ 
+
+
+
+ 
+
+.backgroundImg1 {   
+    height:100%;
+    background-image:url('../img/searchbg0.png');
+}
+
+.circle-image{
+    width:100px;
+    height:100px;
+    border-radius:50%;	 
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    background-image:url("../img/ok.png");
+   
+}
+
+
+input#geenOneMoney{
+width:100px; /*same as the height*/
+height:80px; /*same as the width*/
+background-color:green;
+border:1px solid green; /*same colour as the background*/
+color:#fff;
+font-size:1.2em;
+float:left;
+cursor:pointer;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+
+button#geenOne{
+width:100px; /*same as the height*/
+height:100px; /*same as the width*/
+background-color:green;
+border:1px solid green; /*same colour as the background*/
+color:#fff;
+font-size:1.6em;
+cursor:pointer;
+vertical-align:bottom;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+button#geenOne:hover{
+background:lightgreen;
+border:1px solid lightgreen;
+/*reduce the size of the shadow to give a pushed effect*/
+-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+-moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+}
+
+.redOne{
+width:50px; /*same as the height*/
+height:50px; /*same as the width*/
+background-color:red;
+border:1px solid red; /*same colour as the background*/
+color:#fff;
+font-size:1.6em;
+cursor:pointer;
+margin-left:150px;
+vertical-align:top;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+
+
+.redOneDeposite{
+width:50px; /*same as the height*/
+height:50px; /*same as the width*/
+background-color:red;
+border:1px solid red; /*same colour as the background*/
+color:#fff;
+font-size:1.6em;
+cursor:pointer;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+
+
+
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+.redOne:hover{
+background:orangered;
+border:1px solid orangered;
+cursor:pointer;
+/*reduce the size of the shadow to give a pushed effect*/
+-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+-moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+}
+
+/*-----DeposteDetails cstomers------*/
+#geenDepositeMoney{
+width:80px; /*same as the height*/
+height:80px; /*same as the width*/
+background-color:green;
+border:1px solid green; /*same colour as the background*/
+color:#fff;
+font-size:1.2em;
+float:left;
+cursor:pointer;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+
+
+
+
+
+select {
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+form
+{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login2 input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+
+form.login input[type="text"], form.login input[type="password"],form.login input[type="number"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+
+.ion-checkbox
+{ 
+    background: 0;
+    border: none;
+    
+    outline: 0;
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    
+    outline: 0;
+}
+
+
+form.assignPassword input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0, .75);
+    outline: 0;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: black;
+    outline: 0;
+}
+
+
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+form.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+form.login .remember-forgot
+{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+form.login .forgot-pass-content
+{
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form.login label, form.login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+form.login a
+{
+    transition: color 0.5s ease;
+}
+
+form.login a:hover
+{
+    color: #2ecc71;
+}
+
+.pr-wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.show-pass-reset
+{
+    display: block !important;
+}
+
+.pass-reset
+{
+    margin: 0 auto;
+    width: 250px;
+    position: relative;
+    margin-top: 22%;
+    z-index: 999;
+    background: #FFFFFF;
+    padding: 20px 15px;
+}
+
+.pass-reset label
+{
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+ 
+
+.pass-reset input[type="submit"]
+{
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.pass-reset input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+.posted-by
+{
+    position: absolute;
+    bottom: 26px;
+    margin: 0 auto;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.66);
+    padding: 10px;
+    left: 45%;
+}

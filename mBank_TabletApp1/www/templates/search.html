@@ -1,0 +1,81 @@
+<ion-view view-title="Search Customers {{exact_user}}" class="backgroundImg1">
+ 
+ <div style="margin-top:50px;">
+
+    <label class="item   item-input" style="margin-top:5px;">
+            <i class="icon ion-search placeholder-icon"></i>
+            <!--<input type="number" value="0" onclick="this.value='';" placeholder="Search" ng-model="search.Account_No">-->
+            <input type="number" style="height:55px" placeholder="Search Customers Here" value="" onclick="this.value='';" class="textbox" id="clearText" ng-model="search">
+
+        </label>
+    </div>
+
+    <ion-content style="margin-top:85px;" id="idw">
+        <ion-list>
+            <div class="list" style="padding:0px;">
+                <div class="text-center"> <ion-spinner icon="bubbles" ng-show="!tasks" class="spinner-balanced"></ion-spinner></div>
+                <center ng-show="tasks.length=='0'"><h1 style="color:yellow">Their Is <span style="color:deeppink">No {{exact_user}} Customers</span> <br /> Assign To This Agent </h1></center>
+
+                <a class="item panel" ng-repeat="task in tasks  |limitTo : 10  | filter: search" type="item-text-wrap"
+                   ng-click="clear();" href="#/app/searchdetails/{{exact_user}}/{{task.acc_id}}" style="padding:0px;padding:5px;" ng-hide="task.statusCustomer == 0">
+
+                    <span class="icon ion-person-stalker" style="font-size:80pt;float:left;padding:0px;"></span>
+
+
+                    <div style="padding-top:10px; padding-left:120px">
+
+                        <h2 style="font-size:xx-large;font:bolder;text-transform:capitalize"> {{task.cust_name}} </h2>
+                        <b style="font-size:large;padding-top:0px;"> A/C Type. :&nbsp; <span style="color:blue">{{task.Account_Type}}</span> </b>
+                        <br />
+                        <b style="font-size:large;padding-top:0px;"> A/C No. :&nbsp; <span style="color:blue">{{task.Account_No}}</span> </b>
+
+                    </div>
+
+
+
+                </a>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!--<b style="color:pink;float:right">Please Scroll the Page Down <i class="ion ion-android-arrow-down"></i></b>-->
+
+        </ion-list>
+
+
+    </ion-content>
+
+    <div class=" ">
+        <div class="tabs tab1s tabs-icon-bottom">
+            <a class=" button tab-item " href="#/app/home">
+                <i class="icon ion-home tabIconColor"></i>
+                Home
+            </a>
+           <a class=" button tab-item" ng-click="goRecords();">
+                <i class="icon ion-record tabIconColor"></i>
+                Record
+            </a>
+            <a class=" button tab-item" href="#/app/reqCustomer">
+                <i class="icon ion-card tabIconColor"></i>
+                Req. Customer
+            </a>
+
+            <a class="button tab-item" ng-click="sync();">
+                <i class="icon ion-loop tabIconColor"></i>
+                Sync
+            </a>
+
+        </div>
+    </div>
+</ion-view>
+
+
+<!--<div style="float:right;">
+                      <h1 class="icon ion-chevron-right pull-right" style="float:right;margin-top:35px;padding-right:15px;"></h1>
+                      <div style="float:left">
+
+                          <h3 style="font-size:xx-large">Acc Type:  {{task.Account_Type}}</h3>
+                      </div>
+                  </div>-->
+<!--<span style="font-size:x-large;float:right;padding-top:20px;"><span class="marathiFont">{{task.cust_local_add}}</span>&nbsp; <b>: Address </b></span>-->

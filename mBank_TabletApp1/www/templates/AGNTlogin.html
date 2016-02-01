@@ -1,0 +1,79 @@
+<ion-view view-title="Login" name="login-view" class="backgroundImg1">
+    <ion-content class="padding">
+        <div class="text-center">
+
+            <br />
+            <center><h1 class="mBankImage"></h1></center><br />
+
+            <h2 class="" style="font-size:20pt;color:lightpink">Agent LogIn</h2>
+
+            <br />
+
+            <form class="login">
+
+
+                <div>
+                    <div class="row">
+                        <span class="input-label icon ion-person pull-right col-10" style="font-size:20pt;color:white;"></span>
+                        <input type="text" ng-model="agent_username" placeholder="Username"  autofocus/>
+                    </div>
+                    <div class="row">
+                        <span class="input-label icon ion-asterisk pull-right col-10" style="font-size:20pt;color:white;"></span>
+                        <input type="password" ng-model="agent_password" placeholder="Password" />
+
+                    </div>
+                    <div class="col col-33 col-offset-33">
+
+                        <ion-checkbox ng-model="isChecked" class="ion-checkbox">Remember Me</ion-checkbox>
+
+                    </div>
+                    
+                   
+
+
+                    <button type="submit" value="Login" class="" id="geenOne" ng-click="Agentlogins();agent_username='';agent_password='';" >Login</button><br />
+                    <button class="redOne ion-refresh" ng-click="agent_username='';agent_password='';"> </button>
+                </div>
+            </form>
+
+
+
+        </div>
+
+        <a style="color:white;font-weight:bold;margin-top:30px" class="button button-block button-energized" ng-click="goBM();">BRANCH MANAGER Login </a>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+    </ion-content>
+
+
+
+ </ion-view>
+
+
+
+
+<!--<form ng-submit="Agentlogins()">
+           <div class="list">
+
+               <div >
+                   <label class="  ">
+                       <span class="input-label icon ion-person pull-right"></span>
+                       <input type="text" ng-model="agent_username" placeholder="Username">
+
+                   </label>
+                   <label class="item item-icon-left">
+                       <span class="input-label icon ion-star pull-right"></span>
+
+                       <input type="password" ng-model="agent_password" placeholder="Password">
+                   </label>
+
+               </div>
+           </div>
+           <button class="button button-block button-positive" type="submit">Log in</button>
+       </form>
+
+   </ion-content>-->

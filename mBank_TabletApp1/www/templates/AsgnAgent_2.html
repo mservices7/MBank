@@ -1,0 +1,79 @@
+
+<ion-view view-title="Assign Agent" class="backgroundImg1" ng-init="CheckLogin()">
+    
+        <ion-content style="margin-top:5px;">
+            <form class="assignPassword" name="formname" style="padding-top:0px;">
+                <div class="paddingLR10" style="padding-top:0px;">
+
+                    <div class="text-center"> <ion-spinner icon="bubbles" ng-show="!agents" class="spinner-balanced"></ion-spinner></div>
+
+
+                    <div ng-repeat="agent in agents  | filter:{agent_id:doParseInt(exact_user)}:true">
+                        <div class="list card panel">
+
+                            <div class="item ">
+                                <i class="userImage" style="float:left"></i>
+                                <div style="margin-left:145px;margin-top:20px">
+                                    <h1 class="col-90"   style="color:black;">
+                                        {{agent.agent_name}}
+                                    </h1>
+                                    <p>Login Id  : {{agent.login_id}}</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="  item-body panel text-center">
+                                <h1 style="color:deeppink;"> Configure Password for the Agent</h1>
+
+
+                                <div class=" row" style="padding-top:20px;padding-bottom:15px;">
+                                    <span class="input-label icon ion-asterisk pull-right col-10" style="font-size:20pt;color:black;"></span>
+
+                                    <input type="password" ng-model="password" placeholder="Password" autofocus required>
+                                    <div role="alert">
+                                        <span class="error" ng-show="formname.input.$error.required">
+                                            Please Set Password for Agent!
+                                        </span>
+
+                                    </div>
+                                </div>
+
+                                <label class="row">
+                                    <span class="input-label icon ion-asterisk pull-right col-10" style="font-size:20pt;color:black;"></span>
+
+                                    <input type="password" ng-model="ConformPassword" placeholder="Conform Password" required>
+                                    <div role="alert">
+                                        <span class="error" ng-show="formname.input.$error.required">
+                                            Please Set Password for Agent!
+                                        </span>
+
+                                    </div>
+                                </label>
+
+
+
+
+                            </div>
+
+
+                            <div class=" panel  text-center" style="padding:20px">
+                                <button type="submit" value="Assign" ng-disabled="formname.$invalid" id="geenOne" ng-click="assignAgent(agent_id=agent.agent_id,loginid=agent.login_id,external_agent_id=agent.external_agent_id,role_id=agent.role_id,status=agent.status,is_sync=agent.is_sync,sync_dt=agent.sync_dt,bank_sync_dt=agent.bank_sync_dt)" >Assign</button><br />
+                                <button type="reset" class="redOne ion-refresh"> </button>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+       
+        <br />
+        <br />
+        <br />
+        <br />
+    </ion-content>
+
+ 
+</ion-view>

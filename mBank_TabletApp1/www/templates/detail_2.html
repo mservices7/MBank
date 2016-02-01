@@ -1,0 +1,178 @@
+<ion-view view-title="Customer Detais" class="backgroundImg1" align-title="left" ng-init="CheckLogin()">
+
+    <ion-content>
+        <div class="item tab1s text-center"> 
+            <div class="text-center"> <ion-spinner icon="bubbles" ng-show="!custOnDeposites" class="spinner-balanced"></ion-spinner></div>
+            <div class="list text-left">
+                <a class="item item-thumbnail-left" ng-repeat="loans in loanTrxn | filter:{acc_id:doParseInt(exact_info)}|unique:'acc_id'">
+                    <img src="img/user1.png" />
+                    <p style="float:right">
+                        <b>Loan amount : Rs. {{loans.trx_balance}}</b>
+                        <br/>
+                        <b>Loan Days : {{legtnLoanFound}}</b>
+                        <br />
+                        <button class="button button-assertive button-small" ng-click="getDetailsLoan(accId=loans.acc_id)"><i class="ion ion-refresh"> </i> Get Loan Updates</button>
+
+                       
+                    </p>
+                    <h2 style="text-transform:capitalize"><b>{{loans.cust_name}}</b></h2>
+                    <p>A/C : {{loans.acc_id}}</p>
+                    <p>Cust Id: : {{loans.cust_id}}</p>
+                </a> 
+            </div>
+            <form name="myForm" class="login" ng-show="othertrx">
+                <div class="panel paddingLR10" style="padding-bottom:15px;">
+                    <div class="userImage " style="float:left" ng-show="othertrx"></div>
+
+                    <div ng-repeat="custOnDeposite in custOnDeposites| filter:{acc_id:doParseInt(exact_info)}">
+                        <h4 style="font-size:xx-large;margin-top:10px;padding-left:10px" class="text-left">
+                            {{custOnDeposite.cust_name}}
+
+                        </h4>
+                        <h3 style="font-size:x-large;padding-left:10px" class="text-left">
+                            Cust. Id : {{custOnDeposite.cust_id}}
+
+                        </h3>
+                        <h3 style="font-size:x-large;padding-left:10px" class="text-left">
+                            Cust. Acount No.: {{custOnDeposite.acc_id}}
+
+                        </h3>
+
+
+                        <div class="panel row" style="padding-top:20px;padding-bottom:15px;">
+
+                            <div class="paddingLR10" style="padding-left:20px;width:100%;">
+                                <h1> Enter Amount :</h1>
+
+                                <input type="number" style="color:blue" name="input" min="10" ng-model="depositeMoney" ng-pattern="/^(0|[1-9][0-9]*)$/" value="{{depositeMoney}}" placeholder="Enter Here Amount" required>
+                                <div role="alert">
+                                    <span class="error" ng-show="myForm.input.$error.required">
+                                        Amount Required!
+                                    </span>
+                                    <span class="error" ng-show="myForm.input.$error.pattern">
+                                        Not a valid Amount !
+                                    </span>
+                                    <span class="error" ng-show="myForm.input.$error.number">
+                                        Enter Amount Not Character!
+                                    </span>
+                                    <span class="error" ng-show="myForm.input.$error.min">
+                                        Enter Amount at Least 10 Rs!
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br />
+
+                        <button type="submit" value="Deposite" ng-disabled="myForm.$invalid" style="font-size:10pt" class="" id="geenOne" ng-click="DD(depositeMoney,selectAccountNo=custOnDeposite.accountNo);showme=false;selectAccountNo='';depositeMoney='';">Deposite</button><br />
+                        <button type="reset" class="redOne ion-refresh" ng-click="depositeMoney='';showme=false;selectAccountNo='';"> </button>
+                    </div>
+
+
+
+
+                </div>
+            </form>
+
+            <div class="list text-left" ng-show="loantrx">
+                <div class="button-bar">
+                    <a class="button button-calm" style="font-size:10pt;color:black;">Amount To Collect</a>
+                    <a class="button button-calm" style="font-size:10pt;color:black;">Date To Paid</a>
+                    <a class="button button-calm" style="font-size:10pt;color:black;padding:1px">Collect Amount</a>
+                </div>
+                <div class="button-bar" ng-repeat="loanTrxns in loanTrxn | filter:{acc_id:doParseInt(exact_info)}">
+                    <a class="button" style="font-size:10pt;color:black;">
+                        <b ng-show="(loanTrxns.amt).length != 0">{{loanTrxns.amt}}</b>
+                        <b ng-show="(loanTrxns.amt).length == '0'">0</b> 
+                    </a>
+                    <a class="button" style="font-size:10pt;color:black;">{{loanTrxns.trx_dt}}</a>
+                    <a class="button button-balanced" ng-show="loanTrxns.status == 2" style="padding:1px" ng-disabled="loanTrxns.trx_dt != todayDate" ng-click="collectLoan(trxId=loanTrxns.trxId)">Collect Loan</a>
+                    <a class="button button-royal" ng-show="loanTrxns.status == 5" ng-click="pushToBank(trxId=loanTrxns.trxId)" ng-disabled="loanTrxns.trx_dt != todayDate" style="padding:1px">Push To Bank</a>
+                    <a class="button button-energized" ng-show="(loanTrxns.status == 7 || loanTrxns.status ==10 || loanTrxns.status ==11)" ng-disabled="loanTrxns.trx_dt != todayDate"  style="padding:1px">Loan Amount Sync & Collected</a>
+                </div>
+            </div>
+        </div>
+
+
+        <script id="Tmodel" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar class="bar bar-header bar-positive">
+                    <h1 class="title">New Contact</h1>
+                    <button class="button button-clear button-primary" ng-click="searches()">Cancel</button>
+                </ion-header-bar>
+                <ion-content class="padding">
+                    <div class="list">
+                        <div class=" text-center">
+                            <div ng-repeat="custOnDeposite in custOnDeposites | filter:{cust_id:doParseInt(exact_user)}">
+                                <h2 class="marathiFont">{{custOnDeposite.cust_name}}</h2>
+                                <h2>Acc No.:&nbsp;{{selectAccountNo}}</h2>
+
+                            </div>
+                            <h3> Amount: Rs.&nbsp;{{depositeMoney}}&nbsp;/-</h3>
+                            <h2>Acc No.:&nbsp;{{selectAccountNo}}</h2>
+                        </div>
+
+                        <center class="item">
+                            <h3>Are You Sure To Deposite Money?</h3>
+                            <!--<button class="button  button-small button-positive" ng-click="dailydeposite()">Deposite</button>
+                            <button class="button button-small  button-assertive" ng-click="searches()">Cancle</button>-->
+                            <button type="submit" value="Yes" ng-disabled="myForm.$invalid" style="font-size:10pt" class="" id="geenOne" ng-click="dailydeposite();">Yes</button>
+                            <button ng-click="goHome()" class="redOneDeposite ion-close"> </button>
+                        </center>
+                    </div>
+                </ion-content>
+            </ion-modal-view>
+        </script>
+
+        <br />
+        <br />
+        <br />
+        <br />
+    </ion-content>
+
+
+    <!--<div class="tabs tab1s tabs-icon-bottom " style="padding:0px;">
+        <a class="button tab-item" href="#/app/search" style="padding:0px;">
+            <i class="icon ion-android-cancel tabIconColor"></i>
+            CANCLE
+        </a>
+
+    </div-->
+    >
+
+</ion-view>
+
+
+<!--<div class="list list-inset">
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input type="text" placeholder="Search" ng-model="search.agent_name">
+</label>
+     <button class="button button-clear">
+         Cancel
+     </button>
+  <br />
+<div class="list">
+  <div class="row item" ng-repeat="agent in agents | filter:search">
+      <div class="col text-center pointer"><b>{{ agent.agent_name }}</b></div>
+      <!--<div class="col">{{ agent.agent_perm_add }}</div>-->
+<!--<div class="col">{{ resource.state }}</div>--
+</div>
+</div>
+
+</div>-->
+<!--<div class="item tabs tabs-secondary tabs-icon-left pane" style="font-size:7pt;">
+    <button class="button col-25 icon-left  button-balanced" ng-click="DD();">DD</button>&nbsp;
+    <button class="button col-25 icon-left  button-balanced">RD</button>
+</div>
+
+<div class="item tabs tabs-secondary tabs-icon-left pane">
+    <button class="button col-25 icon-left   button-balanced">FD</button>&nbsp;
+    <button class="button col-25 icon-left   button-balanced">LOAN</button>
+</div>
+
+<div class="item tabs tabs-secondary tabs-icon-left  ">
+    <button class="button col-25 icon-left  button-balanced">SAVING</button>&nbsp;
+    <a class="button col-25 icon-left  button-assertive" href="#/app/search">Cancle</a>
+
+</div>-->

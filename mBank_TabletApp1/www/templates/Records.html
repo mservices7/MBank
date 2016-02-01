@@ -1,0 +1,119 @@
+<ion-view view-title="Today's Transaction" class="backgroundImg1" ng-init="CheckLogin()">
+    <div class="bar bar-subheader" style="height:120px;background-color:transparent">
+        <center style=" padding-bottom:8px;">
+            <div class="row"> 
+                <div class="col col-75">
+                    <select style="padding:0px;background-color:transparent" class="" ng-model="searches">
+                        <option value="" style="padding:0px;color:white;background-color:black">Search Date Wise</option>
+                        <option value="{{DailyTransaction.trxdt}}" style="padding:0px;color:white;background-color:black" ng-repeat="DailyTransaction in DailyTransactions| unique:'trxdt'">{{DailyTransaction.trxdt}}</option>
+
+                    </select>
+                </div>
+                <div class="col">
+                    <a class="button" style="font-size:10.5pt;float:right;width:100%" ng-click="goRecords();">
+                        <b class="ion-refresh"> </b>
+                    </a>
+                </div>
+            </div>
+            <label class="item   item-input" style="margin-top:5px;">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchess">
+            </label>
+            <h1 ng-show=" (DailyTransactions |filter:searches).length==0">
+                <span class="text-center" style="color:yellowgreen;" colspan="3">Their is No Record/Transaction Yet Today</span>
+            </h1>
+        </center>
+    </div>
+    <ion-content style="margin-top:135px;">
+       
+
+        <div style="width:100%">
+            <div class="list">
+                <div class="item" ng-repeat="DailyTransaction in DailyTransactions | filter: searches |filter:searchess">
+                    <input type="button" id="geenOneMoney" value="{{DailyTransaction.amt}} /-">
+                    <span style="float:right;margin-top:31px;">
+                        <p style="font-size:10pt;color:black;">Dt. {{DailyTransaction.trxdt}}</p>
+                        <p style="font-size:12pt;color:black;" class=" "> {{DailyTransaction.agntname}}</p>
+                        <p style="font-size:12pt;color:black;" class=""> {{DailyTransaction.trxExtId}}</p>
+
+                    </span>
+
+                    <div style="margin-top:8px;margin-left:110px;">
+                        <span style="font-size:20pt;font:bolder" class="">{{DailyTransaction.cust_name}}</span><br />
+                        <span style="font-size:10pt;color:black">A/C NO : {{DailyTransaction.accid}}</span><br />
+                        <span style="font-size:10pt;color:black">CustID : {{DailyTransaction.extCustId}}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </ion-content>
+
+    <div class=" ">
+
+        <div class="tabs tab1s tabs-icon-bottom">
+            <a class=" button tab-item " href="#/app/home">
+                <i class="icon ion-home tabIconColor"></i>
+                Home
+            </a>
+            <a class=" button tab-item" href="#/app/reqCustomer">
+                <i class="icon ion-card tabIconColor"></i>
+                Req. Customer
+            </a>
+           
+
+            <a class="button tab-item" ng-click="sync();">
+                <i class="icon ion-loop tabIconColor"></i>
+                Sync
+            </a>
+
+        </div>
+    </div>
+</ion-view>
+
+<!--<!--<div class=" ">
+      <div class="tabs tab1s ">
+          <a class=" button tab-item active" style="font-size:10.5pt;padding:0px;" ng-click="goRecords();">
+              <b style="color:orange"> Today Record</b>
+          </a>
+          <a class="button tab-item " style="font-size:10.5pt;padding:0px " ng-click="syncrecords();">
+              <b style="color:green"> Synced Record</b>
+          </a>
+          <a class="button tab-item" style="font-size:10.5pt;padding:0px;" ng-click="Approved();">
+              <b style="color:darkgreen"> Approved Record</b>
+          </a>
+          <a class="button tab-item " style="font-size:10.5pt;padding:0px;" ng-click="syncFailed();">
+              <b style="color:red"> Synced Faild</b>
+          </a>
+
+      </div>
+  </div>-->
+-->
+
+<!--<table >
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+
+        <th>Amount</th>
+    </tr>
+    <tr ng-show="SyncLocalConform">
+        <td class="text-center" colspan="3"><h3>Their is No Record/Transaction Yet</h3></td>
+    </tr>
+    <tr ng-repeat="DailyTransaction in DailyTransactions">
+        <td class="marathiFont">{{DailyTransaction.cust_name}}</td>
+        <td style="font-size:10pt">{{DailyTransaction.external_trx_id}}</td>
+
+        <td>Rs. {{DailyTransaction.amt}}</td>
+
+    </tr>
+    <tr>
+
+
+    </tr>
+</table>-->

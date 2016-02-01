@@ -1,0 +1,27 @@
+<ion-view view-title="Camera" class="backgroundImg1">
+
+    <ion-content ng-controller="camera">
+        <div class="item">
+            <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+            <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+            <button class="button" ng-click="takePicture()">Take Picture</button>
+        </div>
+
+
+
+
+            <div class="item">
+                <button class="button button-energized" ng-click="addImage()">
+                    Add image
+                </button><br><br>
+                <ion-scroll>
+                    <img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" height="200px" />
+                </ion-scroll>
+            </div>
+
+
+      
+
+</ion-content>
+</ion-view>
+

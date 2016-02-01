@@ -1,0 +1,133 @@
+<ion-view title="Admin Dashboard" class="backgroundImg1" style="background-color:whitesmoke" ng-init="CheckLogin()">
+    
+    <ion-content>
+        <h1 class="title text-center" style="font-weight:bolder;color:white; font-size:30pt">{{banks}}</h1>
+
+
+
+
+        <div class=" " >
+            <div class="paddingLR10 ">
+                 
+                <div class="list card paddingLR10">
+                    <a href="" class="item " style="color:deepskyblue;">
+                        <i class="ion ion-person-stalker " style="float:right;"></i>
+                        Assign Agent
+                    </a>
+
+                    <span href="" class="item" style="padding:1px">
+                        <a ng-click="getAgents();getAgentDataServer();" class="button  button-block button-positive" style="vertical-align:central;text-decoration:none;width:100%">
+                            <span style="font-weight:bolder">Assign Agent</span>
+                        </a>
+
+                    </span>
+                </div>
+                     
+                <div class="list card paddingLR10">
+                    <a id="export" download="{{ModifiedDatee}}.db"   href="" class="item " style="color:deepskyblue;color:green">
+                        <i class="ion ion-loop " style="float:right;"></i>
+                        Sync
+                    </a>
+
+                    <span href="" class="item" style="padding:1px">
+                        <a class="button  button-block button-balanced" style="vertical-align:central;text-decoration:none;width:100%;" id="export" download="{{ModifiedDatee}}.db" ng-click="sync();">
+                            <span style="font-weight:bolder;width:100%">Sync To Cloud Machine</span>
+                        </a>
+                    </span>
+                </div>
+
+              
+
+
+                <div class="list card paddingLR10">
+                    <a href="" class="item" style="color:deepskyblue;color:red">
+                        <i class="ion ion-android-create " style="float:right;"></i>
+                       Clear Database
+                    </a>
+
+                    <span href="" class="item" style="padding:1px">
+                        <a ng-click="DD();" class="button  button-block button-assertive" style="vertical-align:central;text-decoration:none;width:100%">
+                            <span style="font-weight:bolder">Clear All Database From Tablet</span>
+                        </a>
+
+
+
+                        <script id="deleteRecord" type="text/ng-template">
+                            <ion-modal-view>
+                                <ion-header-bar class="bar bar-header bar-positive">
+                                    <h1 class="title">Clear Database</h1>
+                                    <button class="button button-clear button-primary" ng-click="DDD()">Cancel</button>
+                                </ion-header-bar>
+                                <ion-content>
+                                    
+                                        <div class=" text-left">
+                                            <div class="list">
+
+                                                <a class="item item-icon-right" href="#">
+                                                    <i class="icon ion-person"></i>
+                                                    Agents > User Details
+                                                </a>
+
+                                                <a class="item  item-icon-right" href="#">
+                                                    <i class="icon ion-person-stalker"></i>
+                                                    Customers
+                                                </a>
+
+                                                <a class="item item-icon-right" href="#">
+                                                    <i class="icon ion-record"></i>
+                                                    Accounts
+
+                                                </a>
+
+                                                <a class="item item-icon-right" href="#">
+                                                    <i class="icon ion-card"></i>
+                                                    Transaction Details
+
+                                                </a>
+                                               
+                                            </div>
+                                        </div>
+
+                                        
+                                    <center style="margin-top:20px" class="item">
+                                        <h3>Are You Sure To Clear All Database?</h3>
+                                        <br />
+                                        <button type="submit" value="Yes" style="font-size:10pt" class="" id="geenOne" ng-click="deleteRecordSQLite();" >Yes</button>
+                                        <button ng-click="DDD()" class="redOneDeposite ion-close"> </button>
+                                    </center>
+                                </ion-content>
+                                
+                            </ion-modal-view>
+                        </script>
+
+                    </span>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </ion-content>
+
+
+  
+
+
+</ion-view>
+
+
+
+<!--<div class="" style=" margin-top:8px;">
+    <span class="icon ion-person-stalker text-center" style="font-size:80pt;padding:0px;"></span>
+
+    <div class="list card">
+        <a href="" class="item text-left" style="color:deepskyblue">
+            Name
+        </a>
+
+        <a href="" class="item ">
+            {{bm_name}}
+        </a>
+    </div>
+</div>-->

@@ -1,0 +1,63 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <!--<ion-nav-back-button>
+            </ion-nav-back-button>-->
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+
+            </ion-nav-buttons>
+
+            <ion-nav-buttons side="right">
+
+                <img class="mBankImage1" menu-toggle="left" />
+
+            </ion-nav-buttons>
+
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" width="75">
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content style="background-color:dimgray">
+            <ion-list class="text-center item-energized ">
+                
+                <ion-item menu-close class="menuColor" ng-click="goHome();">
+
+                    <h2 style="font-size:20pt" class="icon ion-home custom-icon"></h2>
+                   AG-Home
+                </ion-item>
+
+                <ion-item menu-close class="menuColor" ng-repeat="data in product" ng-click="searchDDCustomers(type=data.type);">
+
+                    <h2 style="font-size:20pt" class="icon ion-card custom-icon"></h2>
+                    {{data.type}}
+
+                </ion-item>
+ 
+
+                <ion-item menu-close class="menuColor"   ng-click="goRecords();">
+                    <h2 style="font-size:20pt" class="icon ion-ios-bookmarks custom-icon"></h2>
+                    Record
+                </ion-item>
+
+               
+                <ion-item menu-close class="menuColor" ng-click="CreateCust();" >
+                    <h2 style="font-size:20pt" class="icon ion-person custom-icon"></h2>
+                    Create <br />Custumer
+                </ion-item>
+ 
+                <ion-item menu-close class="menuColor" ng-click="logout();">
+                    <h2 style="font-size:20pt" class="icon ion-power custom-icon"></h2>
+                    Logout
+                </ion-item>
+
+               
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

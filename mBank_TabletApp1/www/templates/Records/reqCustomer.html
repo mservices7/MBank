@@ -1,0 +1,79 @@
+<ion-view view-title="Search Requested Customers" class="backgroundImg1" ng-init="CheckLogin()">
+    <div style="margin-top:50px;">
+        <div class="row">
+            <div class="col col-75">
+                <div class="item   item-input" >
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search Here Requested Customer" ng-model="search">
+                </div>
+            </div>
+            <div class="col">
+                <a class="button" style="font-size:10.5pt;float:right;width:100%" ng-click="goRecords();">
+                    <b class="ion-refresh"> </b>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <ion-content style="margin-top:70px;">
+        <ion-list>
+            <!--<div class="list" style="padding:0px;">
+                <center ng-show="hideDDDiv"><h1 style="color:yellow" ng-show="notFountRD">Their Is <span style="color:deeppink">No RD Customers</span> <br /> Assign To This Agent </h1></center>
+
+                <a class="item panel" ng-repeat="task in tasks  | filter: search" type="item-text-wrap" style="padding:0px;padding:5px;" ng-show="task.statusCustomer == 0">
+
+                    <span class="icon ion-person-stalker" style="font-size:80pt;float:left;padding:0px;"></span>
+
+                    <h1 class="icon ion-chevron-right " style="float:right;margin-top:35px;padding-right:15px;"></h1>
+                    <div style="padding-top:12px; padding-left:150px">
+                        <b style="font-size:20pt;text-transform:capitalize" class=" ">  {{task.cust_name}} </b><br />
+                        <span style=" font-size:11pt; margin-top:10px;"> A/C No.</span>: {{task.Account_No}}<br />
+
+                        <span style=" font-size:11pt;">Address</span>: <span class=" ">{{task.cust_local_add}}</span><br />
+                        <span style=" font-size:11pt;">Acc Type</span>:  {{task.Account_Type}}
+                    </div>
+
+
+
+                </a>
+            </div>-->
+
+            <div style="width:100%">
+                <div class="list ">
+                    <center ng-show="tasksq.length==0"><h1 style="color:yellow">Their Is <span style="color:deeppink">Not Yet Customers</span> <br /> Request By You </h1></center>
+
+                    <div class="item panel" ng-repeat="task in tasksq  | filter: search" type="item-text-wrap" style="padding:0px;padding:5px;margin-bottom:1px" >
+                        <input type="button" id="geenOneMoney" value="{{task.Account_Type}}">
+                         <span style="float:right;margin-top:5px;">
+
+                            <b style="font-size:10pt;color:black;"> 
+                                <a class="button button-small button-energized" ng-click="status(id=task.external_cust_id)">Show Status</a>  </b>
+                              <!--p style="font-size:12pt;color:black;" class=""> {{DailyTransaction.agntname}}</p>
+                            <!--p style="font-size:12pt;color:black;" class=""> {{DailyTransaction.trxExtId}}</p-->
+
+                        </span> 
+
+                        <div style="margin-top:8px;margin-left:110px;">
+                            <b style="font-size:20pt;font:bolder;text-transform:capitalize" class=" ">{{task.cust_name}}</b><br />
+                            <span style="font-size:10pt;color:black">Dt. {{task.Syncdate}}</span><br />
+
+                            <span style="font-size:10pt;color:black;text-transform:capitalize">Address : {{task.cust_local_add}}</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+        </ion-list>
+
+
+    </ion-content>
+
+    
+</ion-view>
+
+

@@ -1,0 +1,57 @@
+<ion-view view-title="Sync Failed" class="backgroundImg1">
+    <ion-content style="margin-top:10px;">
+        <div class=" ">
+            <center style=" padding-bottom:8px;">
+                <a class="button" style="font-size:10.5pt;" ng-click="syncFailed();">
+                    <b class="ion-refresh"> </b>
+                </a>
+                <h1 ng-show="SyncTransactionssyncFailed">
+                    <span class="text-center" colspan="3">Their is No Record To<br /> Sync Failed</span>
+                </h1>
+            </center>
+          
+        </div>
+
+        <div style="width:100%">
+            <div class="list">
+                <div class="item" ng-repeat="syncFailed in syncFaileds track by $index">
+                    <input type="button" id="geenOneMoney" value="{{syncFailed.amt}} /-">
+                    <span style="float:right">
+                        <p style="font-size:10pt;color:black;">Dt. {{syncFailed.trxdt}}</p>
+                        <p style="font-size:12pt;color:black;" class="marathiFont">Dt. {{syncFailed.agntname}}</p>
+                    </span>
+
+                    <div style="vertical-align:bottom;margin-left:90px;">
+                        <span style="font-size:20pt;font:bolder" class="marathiFont">{{syncFailed.cust_name}}</span><br />
+                        <span style="font-size:10pt;color:black">A/C ID : {{syncFailed.accid}}</span><br />
+                        <span style="font-size:10pt;color:black">CustID : {{syncFailed.extCustId}}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+
+     
+
+    <div class=" ">
+        <div class="tabs tab1s ">
+            <a class=" button tab-item " style="font-size:10.5pt;padding:0px;" ng-click="goRecords();">
+                <b style="color:orange"> Today Record</b>
+            </a>
+            <a class="button tab-item " style="font-size:10.5pt;padding:0px;" ng-click="syncrecords();">
+                <b style="color:green"> Synced Record</b>
+            </a>
+            <a class="button tab-item" style="font-size:10.5pt;padding:0px;" ng-click="Approved();">
+                <b style="color:darkgreen"> Approved Record</b>
+            </a>
+            <a class="button tab-item active" style="font-size:10.5pt;padding:0px;" ng-click="syncFailed();">
+                <b style="color:red"> Synced Faild</b>
+            </a>
+
+        </div>
+    </div>
+</ion-view>
+
